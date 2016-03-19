@@ -1,6 +1,9 @@
 package net.pingpong.lib;
 
-public class PlayerState {
+import java.io.Serializable;
+
+public class PlayerState implements Serializable{
+	private static final long serialVersionUID = 1L;
 	int posX;
 	boolean goal = false;
 	boolean shoot = false;

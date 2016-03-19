@@ -1,10 +1,13 @@
 package net.pingpong.lib;
 
-public class MatchState {
+import java.io.Serializable;
+
+public class MatchState implements Serializable {
+	private static final long serialVersionUID = 1L;
 	int posX_P1;
 	int posX_P2;
 	int posX_Ball , posY_Ball;  
-	int P1_goals , P2_goals;
+	int goals_P1 , goals_P2;
 	boolean pause;
 	
 	//player1
@@ -25,10 +28,16 @@ public class MatchState {
 	
 	//Goals
 	public int getP1goals(){
-		return P1_goals;
+		return goals_P1;
 	}
-	public void addP1goals(){
-		P1_goals++;
+	public void incP1goal(){
+		goals_P1++;
+	}
+	public int getP2goals(){
+		return goals_P2;
+	}
+	public void incP2goal(){
+		goals_P2++;
 	}
 	
 	//Pause
