@@ -1,8 +1,8 @@
 package net.pingpong.lib;
 
 public class MatchState {
-	int posX_P1 , posY_P1;
-	int posX_P2 , posY_P2;
+	int posX_P1;
+	int posX_P2;
 	int posX_Ball , posY_Ball;  
 	int P1_goals , P2_goals;
 	boolean pause;
@@ -15,13 +15,6 @@ public class MatchState {
 		posX_P1 = pos;		
 	}
 	
-	public int getP1posY(){
-		return posY_P1;
-	}
-	public void setP1posY(int pos){
-		posY_P1 = pos;		
-	}
-	
 	//Player2
 	public int getP2posX(){
 		return posX_P2;
@@ -30,14 +23,7 @@ public class MatchState {
 		posX_P2 = pos;		
 	}
 	
-	public int getP2posY(){
-		return posY_P2;
-	}
-	public void setP2posY(int pos){
-		posY_P2 = pos;		
-	}
-	
-	//goals
+	//Goals
 	public int getP1goals(){
 		return P1_goals;
 	}
@@ -45,7 +31,7 @@ public class MatchState {
 		P1_goals++;
 	}
 	
-	//pause
+	//Pause
 	public void pause(){
 		pause = true;
 	}
