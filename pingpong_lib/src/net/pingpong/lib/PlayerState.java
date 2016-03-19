@@ -6,7 +6,7 @@ public class PlayerState implements Serializable{
 	private static final long serialVersionUID = 1L;
 	int posX;
 	boolean goal = false;
-	boolean shoot = false;
+	int shoot = 0;
 	
 	//Position
 	public int getPos(){
@@ -25,15 +25,22 @@ public class PlayerState implements Serializable{
 	}
 	
 	//shoot
-	public boolean isShoot(){
+	public int getShoot(){
 		return shoot;	
 	}
-	public void Shoot(){
-		shoot = true;
+	public void setShoot(int ya){
+		shoot = ya;
 	}
 	
 	public void reste(){
 		goal = false;
-		shoot = false;
+		shoot = 0;
+	}
+	
+	//Global set
+	public void set(int posX,boolean goal,int ya){
+		this.posX = posX;
+		this.goal = goal;
+		shoot = ya;
 	}
 }
