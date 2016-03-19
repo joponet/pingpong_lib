@@ -10,10 +10,10 @@ public class Tick {
 	final double nstick = 1000000000D / 120D;
 	double delay = 0;
 
-	Tick () {
+	public Tick () {
 		this.stop();
 	}
-	boolean update() {
+	public boolean update() {
 		ticktime ();
 		long now = System.nanoTime();
 		if (!running) return false;
@@ -25,7 +25,7 @@ public class Tick {
 		}
 		return false;
 	}
-	void start () {
+	public void start () {
 		running = true;
 		lastTime = System.nanoTime();		
 	}
