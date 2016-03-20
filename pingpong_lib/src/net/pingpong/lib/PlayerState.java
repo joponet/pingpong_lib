@@ -3,7 +3,8 @@ package net.pingpong.lib;
 import java.io.Serializable;
 
 public class PlayerState implements Serializable{
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = -1221270601529336999L;
 	int posX;
 	boolean goal = false;
 	int shoot = 0;

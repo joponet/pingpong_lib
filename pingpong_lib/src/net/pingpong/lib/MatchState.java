@@ -3,7 +3,8 @@ package net.pingpong.lib;
 import java.io.Serializable;
 
 public class MatchState implements Serializable {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 181077855453321314L;
 	int posX_P1;
 	int posX_P2;
 	int posX_Ball , posY_Ball;  
@@ -38,6 +39,20 @@ public class MatchState implements Serializable {
 	}
 	public void incP2goal(){
 		goals_P2++;
+	}
+	
+	//Ball
+	public int getBposX(){
+		return posX_Ball;
+	}
+	public void setBposX(int pos){
+		posX_Ball = pos;
+	}
+	public int getBposY(){
+		return posY_Ball;
+	}
+	public void setBposY(int pos){
+		posY_Ball = pos;
 	}
 	
 	//Pause
