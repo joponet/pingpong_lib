@@ -5,54 +5,43 @@ import java.io.Serializable;
 public class MatchState implements Serializable {
 
 	private static final long serialVersionUID = 181077855453321314L;
-	int posX_P1;
-	int posX_P2;
+	int posX_R;
 	int posX_Ball , posY_Ball;  
-	int goals_P1 , goals_P2;
+	int goals_L , goals_R;
 	boolean pause;
 	
 	//player1
-	public int getP1posX(){
-		return posX_P1;
+	public int getRposX(){
+		return posX_R;
 	}
-	public void setP1posX(int pos){
-		posX_P1 = pos;		
-	}
-	
-	//Player2
-	public int getP2posX(){
-		return posX_P2;
-	}
-	public void setP2posX(int pos){
-		posX_P2 = pos;		
+	public void setRposX(int pos){
+		posX_R = pos;		
 	}
 	
 	//Goals
-	public int getP1goals(){
-		return goals_P1;
+	public int getLgoals(){
+		return goals_L;
 	}
-	public void incP1goal(){
-		goals_P1++;
+	public void setLgoal(int goals){
+		goals_L = goals;
 	}
-	public int getP2goals(){
-		return goals_P2;
+	public int getRgoals(){
+		return goals_R;
 	}
-	public void incP2goal(){
-		goals_P2++;
+	public void setRgoal(int goals){
+		goals_R = goals;
 	}
 	
 	//Ball
 	public int getBposX(){
 		return posX_Ball;
 	}
-	public void setBposX(int pos){
-		posX_Ball = pos;
-	}
 	public int getBposY(){
 		return posY_Ball;
 	}
-	public void setBposY(int pos){
-		posY_Ball = pos;
+	public void setBpos(int x, int y){
+		posX_Ball = x;
+		posY_Ball = y;
 	}
 	
 	//Pause
