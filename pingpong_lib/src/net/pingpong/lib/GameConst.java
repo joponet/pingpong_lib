@@ -11,4 +11,6 @@ public final class GameConst {
 	public static final int BALL_WIDTH = 16;
 	public static final int PLAYER_HEIGHT = 10;
 	public static final int PLAYER_WIDTH = 50;
+	public static final String SERVER_IP = "192.168.1.43";
+	public static final int PORT = 5000;
 }
