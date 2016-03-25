@@ -1,8 +1,8 @@
 package net.pingpong.lib;
 
 public class Pilota {
-	final int width = GameConst.BALL_WIDTH;
-	final int height = GameConst.BALL_HEIGHT;
+	final int width = GameParameters.BALL_WIDTH;
+	final int height = GameParameters.BALL_HEIGHT;
 	int xmax;
 	int xmin;
 	int ymax;
@@ -13,7 +13,7 @@ public class Pilota {
 	double yd;
 	int xa;
 	int ya;
-	int delaystart=GameConst.DELAYSTART;
+	int delaystart=GameParameters.DELAYSTART;
 	double speed;
 	int goal; // 0: no goal, 1:goal playerl, 2: goal player2
 	boolean stop;
@@ -22,9 +22,9 @@ public class Pilota {
 	boolean shoot;
 	
 	public void init() {
-		xmax = GameConst.WIDTH-width;
+		xmax = GameParameters.WIDTH-width;
 		xmin=0;
-		ymax = GameConst.HEIGHT-height-1;
+		ymax = GameParameters.HEIGHT-height-1;
 		ymin = 0;
 		xa=1;
 		ya=-1;
@@ -34,7 +34,7 @@ public class Pilota {
 	}
 	
 	public void reset() {
-		speed = GameConst.SPEED;
+		speed = GameParameters.SPEED;
 		goal=0;
 		shoot = false;
 		reset=false;
@@ -46,7 +46,7 @@ public class Pilota {
 	
 	public void start() {
 		stop=false;
-		delaystart = GameConst.DELAYSTART;
+		delaystart = GameParameters.DELAYSTART;
 	}
 	
 	public void stop() {
@@ -120,7 +120,7 @@ public class Pilota {
 	
 	public void shoot(int ya) {
 		this.ya = ya;
-		if (speed<GameConst.MAXSPEED) speed += GameConst.INCSPEED;
+		if (speed<GameParameters.MAXSPEED) speed += GameParameters.INCSPEED;
 	}
 	
 	public int get_y () {

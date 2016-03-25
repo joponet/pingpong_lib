@@ -44,4 +44,14 @@ public class PlayerState implements Serializable{
 		this.goal = goal;
 		shoot = ya;
 	}
+	
+	public byte[] toByte () {
+		byte[] packet = new byte[256];
+		packet[0] = 0;
+		return packet;
+	}
+	
+	public void set(byte[] packet) {
+		
+	}
 }

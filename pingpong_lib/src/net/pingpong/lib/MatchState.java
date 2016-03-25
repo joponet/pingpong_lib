@@ -54,4 +54,14 @@ public class MatchState implements Serializable {
 	public boolean isPaused(){
 		return pause;
 	}
+	
+	public byte[] toByte () {
+		byte[] packet = new byte[256];
+		packet[0] = (byte) 0;
+		return packet;
+	}
+	
+	public void set (byte[] packet) {
+		
+	}
 }
