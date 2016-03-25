@@ -8,7 +8,7 @@ import java.util.Enumeration;
 
 public class Interfaces {
 	
-	public void main (String args[]) {
+	public static void main (String args[]) {
 		listInterfaces();
 	}
 	

@@ -13,6 +13,8 @@ public final class GameParameters {
 	public static final int PLAYER_WIDTH = 50;
 	public static final String LOCAL_ADDRESS = "192.168.1.43";
 	public static final String ADDRESS = "239.0.0.1";
-	public static final int SERVER_PORT = 5000;
-	public static final int CLIENT_PORT = 5000;
+	public static final int SERVER_PORT_OUT = 5000;
+	public static final int SERVER_PORT_IN = 5001;
+	public static final int CLIENT_PORT_OUT = 5002;
+	public static final int CLIENT_PORT_IN = 5003;
 }
