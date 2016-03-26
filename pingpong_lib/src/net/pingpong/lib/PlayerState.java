@@ -47,19 +47,31 @@ public class PlayerState implements Serializable{
 	
 	public byte[] toByte () {
 		byte[] packet = new byte[256];
-		Integer posX_l = posX;
-		packet[0] = posX_l.byteValue();
+		
+		int pos = posX;
+		for (int i=3; i>=0; i--) {
+			packet[i]= (byte) pos;
+			pos = pos >> 8;
+		}
+		
 		packet[4] = (byte) 0;
 		if (goal) packet[4] = (byte) 1;
+		
 		Integer shoot_l = shoot;
 		packet[5] = shoot_l.byteValue();
+		
 		return packet;
 	}
 	
 	public void set(byte[] packet) {
-		posX = (int) packet[0];
+		for (int i=0; i<4; i++) {
+			posX = posX << 8;
+			posX = posX + packet[i];
+		}
+		
 		goal = false;
 		if (packet[4] == (byte) 1) goal=true;
+		
 		shoot = (int) packet[5];
 	}
 }
