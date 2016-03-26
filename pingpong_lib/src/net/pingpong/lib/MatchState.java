@@ -57,11 +57,34 @@ public class MatchState implements Serializable {
 	
 	public byte[] toByte () {
 		byte[] packet = new byte[256];
-		packet[0] = (byte) 0;
+		// posX_R [0..3]
+		packet[2] = (byte) (posX_R >> 8);
+		packet[3] = (byte) (posX_R);		
+		// posX_Ball [4..7]
+		packet[6] = (byte) (posX_Ball >> 8);
+		packet[7] = (byte) (posX_Ball);		
+		// posY_Ball [8..11]
+		packet[10] = (byte) (posY_Ball >> 8);
+		packet[11] = (byte) (posY_Ball);		
+		// goals_L [12..15]
+		packet[14] = (byte) (goals_L >> 8);
+		packet[15] = (byte) (goals_L);		
+		// goals_R [16..19]
+		packet[18] = (byte) (goals_R >> 8);
+		packet[19] = (byte) (goals_R);		
 		return packet;
 	}
 	
 	public void set (byte[] packet) {
-		
+		// posX_R [0..3]
+		posX_R = (packet[2] & 0xFF) <<8 | (packet[3] & 0xFF);
+		// posX_Ball [4..7]
+		posX_Ball = (packet[6] & 0xFF) <<8 | (packet[7] & 0xFF);
+		// posY_Ball [8..11]
+		posY_Ball = (packet[10] & 0xFF) <<8 | (packet[11] & 0xFF);
+		// goals_L [12..15]
+		goals_L = (packet[14] & 0xFF) <<8 | (packet[15] & 0xFF);
+		// goals_R [16..19]
+		goals_R = (packet[18] & 0xFF) <<8 | (packet[19] & 0xFF);
 	}
 }
