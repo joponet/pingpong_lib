@@ -8,8 +8,16 @@ public class MatchState implements Serializable {
 	int posX_R;
 	int posX_Ball , posY_Ball;  
 	int goals_L , goals_R;
-	boolean pause;
+	boolean pause = true;
 	
+	public void set(int posX_R, int posX_Ball, int posY_Ball, int goals_L, int goals_R, boolean pause){
+		this.posX_R = posX_R;
+		this.posX_Ball = posX_Ball;
+		this.posY_Ball = posY_Ball;
+		this.goals_L = goals_L;
+		this.goals_R = goals_R;
+		this.pause = pause;
+	}
 	//player1
 	public int getRposX(){
 		return posX_R;
@@ -71,7 +79,9 @@ public class MatchState implements Serializable {
 		packet[15] = (byte) (goals_L);		
 		// goals_R [16..19]
 		packet[18] = (byte) (goals_R >> 8);
-		packet[19] = (byte) (goals_R);		
+		packet[19] = (byte) (goals_R);
+		// pause [20]
+		packet[20] = (byte) ((boolean) pause?1:0);
 		return packet;
 	}
 	
@@ -86,5 +96,7 @@ public class MatchState implements Serializable {
 		goals_L = (packet[14] & 0xFF) <<8 | (packet[15] & 0xFF);
 		// goals_R [16..19]
 		goals_R = (packet[18] & 0xFF) <<8 | (packet[19] & 0xFF);
+		// pause [20]
+		pause = packet[20]==0?false:true;
 	}
 }
