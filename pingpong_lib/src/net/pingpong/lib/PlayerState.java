@@ -28,8 +28,8 @@ public class PlayerState implements Serializable{
 	}
 	
 	//shoot
-	public int getShoot(){
-		return shoot;	
+	public boolean getShoot(){
+		return (shoot==0)?false:true;	
 	}
 	public void setShoot(int ya){
 		shoot = ya;
