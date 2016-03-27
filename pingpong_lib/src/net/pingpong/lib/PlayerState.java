@@ -35,9 +35,13 @@ public class PlayerState implements Serializable{
 		shoot = ya;
 	}
 	
-	public void reste(){
+	public void reset(){
 		goal = false;
 		shoot = 0;
+	}
+	
+	public void resetGoal() {
+		goal = false;
 	}
 	
 	//Global set
