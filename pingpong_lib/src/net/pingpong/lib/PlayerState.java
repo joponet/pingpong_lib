@@ -6,6 +6,8 @@ public class PlayerState implements Serializable{
 
 	private static final long serialVersionUID = -1221270601529336999L;
 	int posX;
+	int posX_ball;
+	int posY_ball;
 	boolean goal = false;
 	int shoot = 0;
 	
@@ -47,25 +49,35 @@ public class PlayerState implements Serializable{
 	
 	public byte[] toByte () {
 		byte[] packet = new byte[256];
-		// posX
+		// posX [0..3]
 		packet[2] = (byte) (posX >> 8);
 		packet[3] = (byte) (posX);		
-		// goal
-		packet[4] = (byte) 0;
-		if (goal) packet[4] = (byte) 1;
-		// shoot
-		packet[5] = (byte) shoot;
+		// posX_ball [4..7]
+		packet[6] = (byte) (posX_ball >> 8);
+		packet[7] = (byte) (posX_ball);		
+		// posY_ball [8..11]
+		packet[10] = (byte) (posY_ball >> 8);
+		packet[11] = (byte) (posY_ball);		
+		// goal [12..12]
+		packet[12] = (byte) 0;
+		if (goal) packet[12] = (byte) 1;
+		// shoot [13..16]
+		packet[16] = (byte) shoot;
 
 		return packet;
 	}
 	
 	public void set(byte[] packet) {
-		// posX
+		// posX [0..3]
 		posX = (packet[2] & 0xFF) <<8 | (packet[3] & 0xFF);
-		// goal
+		// posX_ball [4..7]
+		posX_ball = (packet[6] & 0xFF) <<8 | (packet[7] & 0xFF);
+		// posY_ball [8..11]
+		posX_ball = (packet[10] & 0xFF) <<8 | (packet[11] & 0xFF);
+		// goal [12..12]
 		goal = false;
-		if (packet[4] == (byte) 1) goal=true;
-		// shoot
-		shoot = packet[5];
+		if (packet[12] == (byte) 1) goal=true;
+		// shoot [13..16]
+		shoot = packet[16];
 	}
 }

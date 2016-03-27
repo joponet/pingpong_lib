@@ -21,13 +21,14 @@ public class Pilota {
 	boolean reset;
 	boolean shoot;
 	
-	public void init() {
-		xmax = GameParameters.WIDTH-width;
+	public void init(int groundWidth, int groundHeight) {
+		xmax = groundWidth-width;
 		xmin=0;
-		ymax = GameParameters.HEIGHT-height-1;
-		ymin = 0;
+		//ymax = GameParameters.HEIGHT-height-1;
+		ymax = groundHeight+height;
+		ymin = 35;
 		xa=1;
-		ya=-1;
+		ya=1;
 		reset();
 		stop=true;
 		active=false;
@@ -57,7 +58,7 @@ public class Pilota {
 		return stop;
 	}
 	
-	public void tick() {
+	public void tick(MatchState matchState) {
 		if (!active) return;
 		if (stop) return;
 		if (goal>0) reset();
@@ -95,7 +96,7 @@ public class Pilota {
 		}
 		/*
 		int centerx=x+(width/2);
-		if((ya == 1) && (y+height >= player1.y) && (centerx >= player1.x) && (centerx <= player1.x+player1.width-1)) {
+		if((ya == 1) && (y+height >= player1.) && (centerx >= player1.x) && (centerx <= player1.x+player1.width-1)) {
 			ya=-1;
 			if (speed<GameConst.MAXSPEED) speed += GameConst.INCSPEED;
 			//player1.shoot();
@@ -108,10 +109,10 @@ public class Pilota {
 			//player2.shoot();
 			//sound.click();
 			shoot = true;
-		}	*/
+		}*/
 	}	
 	
-	public int get_goal () {
+	public int getGoal () {
 		int goal;
 		goal = this.goal;
 		this.goal = 0;
@@ -120,20 +121,30 @@ public class Pilota {
 	
 	public void shoot(int ya) {
 		this.ya = ya;
-		if (speed<GameParameters.MAXSPEED) speed += GameParameters.INCSPEED;
+		//if (speed<GameParameters.MAXSPEED) speed += GameParameters.INCSPEED;
 	}
 	
-	public int get_y () {
+	public int get_ymin () {
 		return y;
 	}
 	
-	public int get_x () {
+	public int get_ymax () {
+		return y+height;
+	}
+
+	public int get_xmin () {
 		return x;
 	}
 	
+	public int get_xmax () {
+		return x+width;
+	}
+
 	public int get_ya () {
 		return ya;
 	}
-
-
+	
+	public int get_centerX () {
+		return x+(width/2);
+	}
 }

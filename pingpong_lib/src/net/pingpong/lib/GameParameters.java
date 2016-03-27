@@ -5,8 +5,10 @@ public final class GameParameters {
 	public static final double INCSPEED = 0.1;
 	public static final int MAXSPEED = 3;
 	public static final int DELAYSTART = 180;
-	public static final int WIDTH = 294;
-	public static final int HEIGHT = 434; //500 - 32
+	public static final int FRAME_WIDTH = 300;
+	public static final int FRAME_HEIGHT = 500;
+	public static final int GAME_WIDTH = 294;
+	public static final int GAME_HEIGHT = 467;
 	public static final int BALL_HEIGHT = 16;
 	public static final int BALL_WIDTH = 16;
 	public static final int PLAYER_HEIGHT = 10;
