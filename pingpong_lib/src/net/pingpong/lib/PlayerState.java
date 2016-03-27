@@ -63,7 +63,7 @@ public class PlayerState implements Serializable{
 		packet[10] = (byte) (posY_ball >> 8);
 		packet[11] = (byte) (posY_ball);		
 		// goal [12..12]
-		packet[12] = (byte) 0;
+		packet[12] = (byte) ((boolean) goal?1:0);
 		if (goal) packet[12] = (byte) 1;
 		// shoot [13..16]
 		packet[16] = (byte) shoot;
