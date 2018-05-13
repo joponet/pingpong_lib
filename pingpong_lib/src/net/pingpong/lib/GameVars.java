@@ -12,6 +12,10 @@ public class GameVars {
 	public GameVars () {
 		
 	}
+	public void setNetworkInterface () {
+		networkInterface = Interfaces.getInterface();
+//		serverAddress = selectedInterface.
+	}
 	public void setNetworkInterface (String interfaceName) {
 		System.out.println(interfaceName);
 		try {
